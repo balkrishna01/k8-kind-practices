@@ -1,0 +1,32 @@
+kubectl config get-contexts                          # display list of contexts
+kubectl config use-context my-cluster-name           # set the default context to my-cluster-name
+
+
+kubectl apply -f nginx.yaml 
+kubectl get pods
+kubectl apply -f nginx.yaml 
+
+kubectl get pod nginx-pod
+kubectl describe pod nginx-pod
+kubectl get pod nginx-pod
+kubectl apply -f nginx.yaml 
+
+kubectl apply -f nginx.yaml 
+
+kubectl edit pod nginx-pod
+
+kubectl describe pod nginx-pod
+kubectl exec --it nginx-pod -- sh
+kubectl exec -it nginx-pod -- sh
+kubectl run nginx --image=nginx --dry-run=client
+kubectl run nginx --image=nginx --dry-run=client -o yaml > newnginx.yaml
+
+kubectl delete rc/nginx-rc
+kubectl edit rs/nginx-rs
+kubectl scale --replicas=10 rs/nginx-rs
+
+
+kubectl rollout history deploy/nginx-deploy
+kubectl rollout undo deploy/nginx-deploy
+kubectl describe deploy/nginx-deploy
+kubectl create deploy deploy/nginx-new --image=nginx --dry-run=client -o yaml > deploy.yml

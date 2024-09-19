@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deploy
+  labels:
+    env: demo
+spec:
+  template:
+    metadata:
+      name: nginx-rs
+      labels:
+        env: demo
+    spec:
+      containers:
+        - name: nginx-rs
+          image: nginx:1.9.1
+          ports: 
+           - containerPort: 80
+  replicas: 3
+  selector:
+    matchLabels:
+      env: demo
